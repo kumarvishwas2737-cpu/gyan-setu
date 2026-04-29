@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium home tutoring in Kanpur by Gyan Setu. Expert 1:1 tutors for Classes 1-12 delivered at your doorstep in Aakash Ganga Vihar.">
+    <title>Gyan Setu — Premium Home Tutoring in Kanpur</title>
+    
+    <!-- SEO & Social -->
+    <meta property="og:title" content="Gyan Setu — Premium Home Tutoring in Kanpur">
+    <meta property="og:description" content="Excellence in education delivered to Kanpur's most distinguished families.">
+    <meta property="og:image" content="https://picsum.photos/id/1015/1200/630">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #D4AF37;
+            --dark: #0a0a0a;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+            --light-gray: #e8e8e8;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2rem 0;
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.02em; }
+        .nav-menu { display: flex; gap: 3rem; align-items: center; }
+        .nav-menu a { color: var(--dark); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--gold); }
+        .mobile-menu-btn { display: none; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0; left: -100%;
+            width: 100%; height: 100vh;
+            background: rgba(10,10,10,0.98);
+            z-index: 2000;
+            transition: left 0.4s ease;
+        }
+        .mobile-menu.active { left: 0; }
+        .mobile-menu-content { padding-top: 100px; text-align: center; }
+        .mobile-menu-content a {
+            display: block;
+            color: white;
+            font-size: 1.4rem;
+            padding: 1.5rem 0;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(245,245,245,0.92), rgba(245,245,245,0.95)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            text-align: center;
+        }
+        .hero-label {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #444;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            padding: 1.2rem 3rem;
+            background: var(--dark);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section { padding: 8rem 4rem; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .section-label { color: var(--gold); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; }
+        .section-title { font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0 1.5rem; }
+
+        /* Programs */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .program-card {
+            background: white;
+            padding: 4rem;
+            border: 1px solid var(--light-gray);
+            transition: all 0.4s ease;
+        }
+        .program-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+        }
+
+        /* Excellence */
+        .excellence { background: var(--dark); color: white; }
+        .excellence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Testimonials */
+        .testimonial { display: none; }
+        .testimonial.active { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+        /* Contact Form */
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--light-gray);
+            margin-bottom: 1.5rem;
+            font-family: inherit;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1.3rem;
+            background: var(--dark);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: var(--dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-menu { display: none; }
+            .mobile-menu-btn { display: block; }
+            section { padding: 5rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">GYAN SETU</div>
+            <div class="nav-menu">
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#excellence">Excellence</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button id="mobileClose" style="position:absolute;top:30px;right:30px;background:none;border:none;font-size:3rem;color:white;cursor:pointer;">×</button>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#programs" onclick="closeMobileMenu()">Programs</a>
+            <a href="#excellence" onclick="closeMobileMenu()">Excellence</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Aakash Ganga Vihar, Kanpur</div>
+            <h1>Premium Home<br>Tutoring</h1>
+            <p class="hero-subtitle">Excellence in education delivered to Kanpur's most distinguished families. Expert 1:1 tutoring for Classes 1-12 with personalized attention and proven results.</p>
+            <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+                <a href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20premium%20tutoring" target="_blank" class="btn-primary">
+                    <i class="fab fa-whatsapp"></i> Start Conversation
+                </a>
+                <a href="#contact" class="btn-primary" style="background:transparent;border:2px solid #0a0a0a;color:#0a0a0a;">Book Free Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container" style="text-align:center;max-width:900px;margin:0 auto">
+            <div class="section-label">Our Philosophy</div>
+            <h2 class="section-title">Bridging Knowledge to Excellence</h2>
+            <p style="font-size:1.3rem;line-height:2;color:#444;margin:2rem 0">At Gyan Setu, we deliver premium educational services to discerning families who understand the value of exceptional tutoring. Our personalized approach ensures every student receives the attention, expertise, and guidance needed to excel academically.</p>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs" style="background:#f8f8f8">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:4rem">
+                <div class="section-label">What We Offer</div>
+                <h2 class="section-title">Programs</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <span style="color:var(--gold);font-size:0.8rem;letter-spacing:2px">CLASSES 1—10</span>
+                    <h3 style="font-size:2.8rem;margin:1rem 0 1.5rem">Foundation Program</h3>
+                    <p style="color:#666;margin-bottom:2rem">Complete syllabus mastery across all subjects with focus on conceptual clarity, regular assessments, and continuous progress tracking.</p>
+                    <ul style="list-style:none">
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">English, Hindi & Regional Languages</li>
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Mathematics & Logical Reasoning</li>
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Science & Environmental Studies</li>
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Social Science & Computer</li>
+                        <li style="padding:0.8rem 0">Weekly Assessments</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <span style="color:var(--gold);font-size:0.8rem;letter-spacing:2px">CLASSES 11—12</span>
+                    <h3 style="font-size:2.8rem;margin:1rem 0 1.5rem">Science Excellence</h3>
+                    <p style="color:#666;margin-bottom:2rem">Specialized coaching in Physics, Chemistry & Biology with advanced preparation for board examinations and competitive tests.</p>
+                    <ul style="list-style:none">
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Physics — Concepts & Problem Solving</li>
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Chemistry — Organic, Inorganic, Physical</li>
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Biology — Detailed Theory & Diagrams</li>
+                        <li style="padding:0.8rem 0;border-bottom:1px solid #eee">Board Exam Preparation</li>
+                        <li style="padding:0.8rem 0">Competitive Foundation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excellence -->
+    <section id="excellence" class="excellence">
+        <div class="container" style="text-align:center">
+            <div class="section-label" style="color:white">Our Commitment</div>
+            <h2 class="section-title" style="color:white">Why Choose Us</h2>
+            <div class="excellence-grid">
+                <div style="padding:2rem;background:rgba(255,255,255,0.05);border-radius:12px">🏠 Home Comfort</div>
+                <div style="padding:2rem;background:rgba(255,255,255,0.05);border-radius:12px">🎯 Expert Faculty</div>
+                <div style="padding:2rem;background:rgba(255,255,255,0.05);border-radius:12px">📊 Progress Tracking</div>
+                <div style="padding:2rem;background:rgba(255,255,255,0.05);border-radius:12px">💎 Premium Service</div>
+                <div style="padding:2rem;background:rgba(255,255,255,0.05);border-radius:12px">⏰ Flexible Timing</div>
+                <div style="padding:2rem;background:rgba(255,255,255,0.05);border-radius:12px">✓ Proven Results</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:4rem">
+                <div class="section-label">Get Started</div>
+                <h2 class="section-title">Connect With Us</h2>
+            </div>
+            <div style="max-width:800px;margin:0 auto;background:#f8f8f8;padding:3rem;border-radius:20px">
+                <form action="https://formsubmit.co/your-email@example.com" method="POST">
+                    <input type="text" name="name" placeholder="Parent Name" required style="padding:1rem;width:100%;margin-bottom:1rem;border:1px solid #ddd">
+                    <input type="tel" name="phone" placeholder="Contact Number" required style="padding:1rem;width:100%;margin-bottom:1rem;border:1px solid #ddd">
+                    <select name="program" required style="padding:1rem;width:100%;margin-bottom:1rem;border:1px solid #ddd">
+                        <option value="">Select Program</option>
+                        <option value="Foundation">Classes 1-10 Foundation</option>
+                        <option value="Science">Classes 11-12 Science Excellence</option>
+                    </select>
+                    <textarea name="message" rows="4" placeholder="Message (optional)" style="padding:1rem;width:100%;margin-bottom:1rem;border:1px solid #ddd"></textarea>
+                    <button type="submit" class="submit-btn">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background:#0a0a0a;color:white;padding:4rem 2rem;text-align:center">
+        <div class="logo" style="color:white;font-size:1.8rem;margin-bottom:1rem">GYAN SETU</div>
+        <p>Aakash Ganga Vihar, Kanpur</p>
+        <p style="margin-top:2rem;font-size:0.9rem;opacity:0.5">© 2026 Gyan Setu. All Rights Reserved.</p>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20premium%20tutoring" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobileBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        mobileClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Form feedback
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const btn = this.querySelector('button');
+            btn.textContent = 'SENT ✓ We will contact you soon!';
+            setTimeout(() => location.reload(), 2500);
+        });
+    </script>
+</body>
+</html>
